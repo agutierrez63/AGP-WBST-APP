@@ -1,21 +1,21 @@
-import About from "./components/About";
-import Cards from "./components/Cards";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
-import Newsletter from "./components/Newsletter";
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Products from './pages/Products';
+import Navbar from './components/Navbar';
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 
 
 function App() {
   return (
-    <>
-    <Navbar/>
-    <Hero/>
-    <About/>
-    <Newsletter/>
-    <Cards/>
-    <Footer/>
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Home/>} />
+      <Route path='/about' element={<About/>} />
+      <Route path='/products' element={<Products/>} />
+      <Route path='/contact' element={<Contact/>} />
+    </Routes>
+    </BrowserRouter>
   );
 }
 
