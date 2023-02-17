@@ -40,7 +40,7 @@ const Contact = () => {
           </textarea>
           <button className='bg-[#d2a993] text-black rounded-md font-medium w-[200px] my-4 px-6 py-3'>Send</button>
           <p className='text-black'>Alliance Graphics and Printing cares about the best qualtiy for your print. 
-          Read our {' '}<span className='text-[#d2a993]'>Terms of Service </span>.</p>
+          Read our {' '}<span className='text-[#d2a993]'>Terms of Service</span>.</p>
         </div>
 
       </div>

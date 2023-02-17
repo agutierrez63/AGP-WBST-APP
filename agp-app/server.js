@@ -1,33 +1,47 @@
-const express = require("express");
-const app = express();
-// This is your test secret API key.
-const stripe = require("stripe")('sk_test_51HeTsAKnASpiKD9XDnVEePmIi892pUsZJ7ZAn503ukgR1AgaOKbiy9Tjb3cA2SBbPNhmUqEJ6Ey94jSAdFOFdjxj00WvphSKQi');
+require("dotenv").config()
 
-app.use(express.static("public"));
-app.use(express.json());
+const express = require("express")
+const app = express()
+const cors = require('cors')
+app.request(express.json())
+app.use(
+    cors({
+        origin:"http://localhost:5500",
+    })
+)
 
-const calculateOrderAmount = (items) => {
-  // Replace this constant with a calculation of the order's amount
-  // Calculate the order total on the server to prevent
-  // people from directly manipulating the amount on the client
-  return 1400;
-};
+const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 
-app.post("/create-payment-intent", async (req, res) => {
-  const { items } = req.body;
+const storeItems = new Map([
+    [ 1, { priceInCents: 10000, name: "Item_1" }],
+    [ 2, { priceInCents: 20000, name: "Item_2" }]
+])
 
-  // Create a PaymentIntent with the order amount and currency
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount: calculateOrderAmount(items),
-    currency: "usd",
-    automatic_payment_methods: {
-      enabled: true,
-    },
-  });
+app.post('/create-checkout-session', async (req, res) => {
+    try {
+        const session = await stripe.checkouot.sessions.create({
+            payment_method_types: ['card'],
+            mode: 'payment',
+            line_items: req.body.items.map(item => {
+                const storeItem = storeItems.get(item.id)
+                return {
+                    price_dat: {
+                        currentcy: "usd",
+                        product_dat: {
+                            name: storeItem.name
+                        },
+                        unit_amount: storeItem.priceInCents
+                    },
+                    quantity: item.qunatity
+                }
+            }),
+            success_url: `${process.env.CLIENT_URL}/success.html`,
+            failure_url: `${process.env.CLIENT_URL}/cancel.html`
+        })
+    } catch (e) {
+        res.status(500).json({ error: e.message })
+    }
+    res.json({ url: 'Checkout=?'})
+})
 
-  res.send({
-    clientSecret: paymentIntent.client_secret,
-  });
-});
-
-app.listen(4242, () => console.log("Node server listening on port 4242!"));
+app.listen(3000)
