@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {Link} from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import Logo from '../assets/company_logo.png'
 
@@ -20,6 +20,7 @@ const Navbar = ({ linkHome='/'}) => {
           <li className='p-4'><a href='/about'>About</a></li>
           <li className='p-4'><a href='/products'>Products</a></li>
           <li className='p-4'><a href='/contact'>Contact</a></li>
+          <li className='p-4'><a href='/signin'>Sign In</a></li>
 
         </ul>
         <div onClick={handleNav} className='block md:hidden'>
@@ -35,6 +36,7 @@ const Navbar = ({ linkHome='/'}) => {
             <li className='p-4 border-b border-gray-400'><a href='/about'>About</a></li>
             <li className='p-4 border-b border-gray-400'><a href='/products'>Products</a></li>
             <li className='p-4 border-b border-gray-400'><a href='/contact'>Contact</a></li>
+            <li className='my-8 p-4 border-b border-gray-400'><a href='/signin'>Sign In</a></li>
           </ul>
         </div>
     </div>
