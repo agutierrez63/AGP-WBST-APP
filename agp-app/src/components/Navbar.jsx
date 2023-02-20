@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
+import {Link} from 'react-router-dom';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import Logo from '../assets/company_logo.png'
 
-const Navbar = () => {
+const Navbar = ({ linkHome='/'}) => {
   const [nav, setNav] = useState(false);
 
   const handleNav = () => {
@@ -10,7 +12,9 @@ const Navbar = () => {
 
   return (
     <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-black'>
-        <h1 className='w-full text-3xl font-bold text-primary'>AGP</h1>
+        <Link to={linkHome}>
+            <img alt='AGP' className=' m-4 h-14 w-14' src={Logo} />
+        </Link>
         <ul className="hidden md:flex">
           <li className='p-4'><a href='/'>Home</a></li>
           <li className='p-4'><a href='/about'>About</a></li>
@@ -23,7 +27,9 @@ const Navbar = () => {
         </div>
 
         <div  className={nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-400 bg-[#f0f0f0] ease-in-out duration-500' : 'fixed left-[-100%]'}>
-          <h1 className='w-full text-3xl font-bold text-primary m-4'>AGP</h1>
+          <Link to={linkHome}>
+            <img alt='AGP' className=' m-4 h-14 w-14' src={Logo} />
+        </Link>
           <ul className='uppercase p-4'>
             <li className='p-4 border-b border-gray-400'><a href='/'>Home</a></li>
             <li className='p-4 border-b border-gray-400'><a href='/about'>About</a></li>

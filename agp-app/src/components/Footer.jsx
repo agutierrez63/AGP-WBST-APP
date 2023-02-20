@@ -1,8 +1,6 @@
 import React from 'react';
 import {
-    FaDribbbleSquare,
     FaFacebookSquare,
-    FaGithubSquare,
     FaInstagram,
     FaTwitterSquare,
 
@@ -19,8 +17,6 @@ const Footer = () => {
             <FaFacebookSquare size={30} />
             <FaInstagram size={30} />
             <FaTwitterSquare size={30} />
-            <FaGithubSquare size={30} />
-            <FaDribbbleSquare size={30} />
         </div>
       </div>
       <div className='lg:col-span-2 flex justify-between mt-6'>
