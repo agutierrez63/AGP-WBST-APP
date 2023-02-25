@@ -6,7 +6,9 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 
+
 function App() {
+
   return (
     <BrowserRouter>
     <Routes>

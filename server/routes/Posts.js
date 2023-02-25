@@ -1,11 +1,9 @@
-const express = require('express');
+/*const express = require("express");
 const router = express.Router();
-const { Posts } = require('../models');
+const { Posts } = require("../models");
 
-router.get('/', async (req, res) => {
-    const listOfPosts = await Posts.findAll();
-    // res.json(listOfPosts);
-    res.json("Hello World");
+router.get("/", (req, res) => {
+    res.send("Hello World");
 });
 
 router.post("/", async (req, res) => {
@@ -14,4 +12,25 @@ router.post("/", async (req, res) => {
     res.json(post);
 });
 
-module.exports = router
+module.exports = router;*/
+
+const express = require('express');
+const router = express.Router();
+const { Posts } = require('../models');
+
+router.get("/", async (req, res) => {
+    const listOfPosts = await Posts.findAll();
+    res.json(listOfPosts);
+});
+
+router.post("/", async (req, res) => {
+    try {
+        const post = req.body;
+        await Posts.create(post);
+        res.json(post);
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+module.exports = router;
