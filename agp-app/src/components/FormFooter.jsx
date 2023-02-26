@@ -14,7 +14,7 @@ const FormFooter = () => {
     </div>
 
     <div className="text-sm">
-      <a href="/" className="font-medium text-[#d2a993] hover:text-[#e6bdad]">Forgot your password?</a>
+      <a href="/" className="font-medium text-[#d2a993] hover:text-[#e6bdad]">&nbsp;Forgot your password?</a>
     </div>
   </div>
   )

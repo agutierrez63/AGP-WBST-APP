@@ -6,6 +6,7 @@ const FormAction = ({
     action='submit',
     text 
 }) => {
+
   return (
     <>
     {
@@ -16,10 +17,7 @@ const FormAction = ({
         border-transparent text-sm font-medium rounded-md text-black bg-[#d2a993]
         hover:bg-[#e6bdad] focus:outline-none focus:ring-2 focus:ring-offset-2
         focus:ring-[#e6bdad] mt-10"
-        onSubmit={handleSubmit}
-      >
-      {text}
-      </button>
+        onSubmit={handleSubmit}>{text}</button>
       :
       <></>
     }

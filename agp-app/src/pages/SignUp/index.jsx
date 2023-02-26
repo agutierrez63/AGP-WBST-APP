@@ -8,7 +8,7 @@ const SignUp = () => {
     <Header 
       heading='Sign up for an account'
       paragraph="Already have an account?"
-      linkName='SignIn'
+      linkName='Sign In'
       linkUrl='/signin'/>
       <SignUpForm />
     </>

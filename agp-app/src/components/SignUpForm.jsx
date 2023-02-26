@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { signupFields } from "../constants/formFields";
+import axios from 'axios';
+
 import FormAction from "./FormAction";
 import Input from "./Input";
 
@@ -13,17 +15,19 @@ const SignUp = () => {
     
   const [signupState,setSignupState]=useState(fieldsState);
 
-  const handleChange=(e)=>setSignupState({...signupState,[e.target.id]:e.target.value});
+  const handleChange = (e) =>setSignupState({...signupState,[e.target.id]:e.target.value});
 
-  const handleSubmit=(e)=>{
+  const handleSubmit = (e) =>{
     e.preventDefault();
-    console.log(signupState)
+    // console.log(signupState)
     createAccount()
   }
 
-  //handle Signup API Integration here
-  const createAccount=()=>{
-
+  // Handle sign up API POST
+  const createAccount = (data) =>{
+    axios.post('http://localhost:3001/', data).then((response) => {
+      console.log("User Created!");
+    });
   }
 
   return (

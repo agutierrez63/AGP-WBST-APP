@@ -5,8 +5,8 @@ const Items = () => {
     const [listOfPosts, setListOfPosts] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3001/posts').then((response) => {
-        setListOfPosts(response.data);
+        axios.get('http://localhost:3001/products').then((response) => {
+            setListOfPosts(response.data);
         });
     }, []);
 

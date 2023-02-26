@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { loginFields } from "../constants/formFields";
+import axios from 'axios';
 
 import FormFooter from './FormFooter';
 import FormAction from './FormAction';
@@ -14,7 +15,17 @@ const Login = () => {
 
   const [loginState,setLoginState]=useState(fieldsState);
   const handleChange = (e) => { setLoginState({...loginState,[e.target.id]:e.target.value}) }
-  const handleSubmit = async (e) => { e.preventDefault(); }
+  const handleSubmit = async (e) => { 
+    e.preventDefault(); 
+    loginAccount();
+  }
+
+  // Handles Login API request GET
+  const loginAccount = (data) => {
+    axios.get('http://localhost:3001/user', data).then((response) => {
+      console.log("User Logged in! Welcome!");
+    });
+  }
   
   return (
         <div className='flex justify-center items-center h-full'>

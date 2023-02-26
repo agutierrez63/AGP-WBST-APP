@@ -21,38 +21,26 @@ const loginFields=[
     }
 ]
 
-const contactFields=[
-    {
-        labelText:"Email address",
-        labelFor:"email-address",
-        id:"email-address",
-        name:"email",
-        type:"email",
-        autoComplete:"email",
-        isRequired:true,
-        placeholder:"Enter Email"   
-    },
-    {
-        labelText:"Username",
-        labelFor:"username",
-        id:"username",
-        name:"username",
-        type:"text",
-        autoComplete:"username",
-        isRequired:true,
-        placeholder:"Enter Name"   
-    }
-]
 const signupFields=[
     {
-        labelText:"Username",
-        labelFor:"username",
-        id:"username",
-        name:"username",
+        labelText:"Firstname",
+        labelFor:"firstname",
+        id:"firstname",
+        name:"firstname",
         type:"text",
-        autoComplete:"username",
+        autoComplete:"Firstname",
         isRequired:true,
-        placeholder:"Username"   
+        placeholder:"First Name"   
+    },
+    {
+        labelText:"Lastname",
+        labelFor:"lastname",
+        id:"lastname",
+        name:"lastname",
+        type:"text",
+        autoComplete:"lastname",
+        isRequired:true,
+        placeholder:"Last Name"   
     },
     {
         labelText:"Email address",
@@ -86,4 +74,4 @@ const signupFields=[
     }
 ]
 
-export {loginFields, contactFields, signupFields}
+export {loginFields, signupFields}
