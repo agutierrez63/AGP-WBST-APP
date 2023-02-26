@@ -4,8 +4,9 @@ const { Users } = require('../models');
 const bcrypt = require("bcrypt");
 
 router.get("/", async (req, res) => {
-    // const listOfUsers = await Users.findAll();
-    // res.json(listOfUsers);
+    const listOfUsers = await Users.findAll();
+    res.json(listOfUsers);
+    // console.log("Users avaialble");
 });
 
 router.post("/", async (req, res) => {
@@ -23,6 +24,19 @@ router.post("/", async (req, res) => {
     } catch {
         res.send(error);
     }
+});
+
+router.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+
+    const user = await Users.findOne({ where: { email: email } });
+
+    if (!user) res.json({ error: "User Deson't Exist" });
+    
+    bcrypt.compare(password, user.password).then((match) => {
+        if (!match) res.json({ error: "Wrong email/password combination." });
+        res.json("Logged In!");
+    });
 });
 
 module.exports = router;

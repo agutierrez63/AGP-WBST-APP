@@ -13,19 +13,18 @@ fields.forEach(field => fieldsState[field.id]='');
 
 const SignUp = () => {
     
-  const [signupState,setSignupState]=useState(fieldsState);
+  const [signupState, setSignupState]=useState(fieldsState);
 
-  const handleChange = (e) =>setSignupState({...signupState,[e.target.id]:e.target.value});
+  const handleChange = (e) => setSignupState({...signupState, [e.target.id]:e.target.value});
 
   const handleSubmit = (e) =>{
     e.preventDefault();
-    // console.log(signupState)
     createAccount()
   }
 
   // Handle sign up API POST
   const createAccount = (data) =>{
-    axios.post('http://localhost:3001/', data).then((response) => {
+    axios.post('http://localhost:3001/auth', data).then((response) => {
       console.log("User Created!");
     });
   }
@@ -47,6 +46,7 @@ const SignUp = () => {
                 type={field.type}
                 isRequired={field.isRequired}
                 placeholder={field.placeholder}
+                required
               />
             )
           }

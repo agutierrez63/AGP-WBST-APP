@@ -13,17 +13,19 @@ fields.forEach(field=>fieldsState[field.id]='');
 
 const Login = () => {
 
-  const [loginState,setLoginState]=useState(fieldsState);
-  const handleChange = (e) => { setLoginState({...loginState,[e.target.id]:e.target.value}) }
+  const [loginState, setLoginState] = useState(fieldsState);
+  const handleChange = (e) => { setLoginState({...loginState, [e.target.id]:e.target.value}) }
   const handleSubmit = async (e) => { 
     e.preventDefault(); 
     loginAccount();
   }
 
   // Handles Login API request GET
-  const loginAccount = (data) => {
-    axios.get('http://localhost:3001/user', data).then((response) => {
-      console.log("User Logged in! Welcome!");
+  const loginAccount = () => {
+    const data = { loginFields: loginFields };
+    axios.get('http://localhost:3001/auth/login', data).then((response) => {
+      // console.log("User Logged in! Welcome!");
+      console.log(response.data);
     });
   }
   
