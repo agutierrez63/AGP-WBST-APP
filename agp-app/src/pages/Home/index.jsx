@@ -11,9 +11,9 @@ const Home = () => {
     <>
     <Navbar/>
     <Hero/>
+    <Cards/>
     <AboutUs/>
     <Newsletter/>
-    <Cards/>
     <Footer/>
     </>
   )

@@ -28,7 +28,6 @@ const Items = () => {
             })}
             </div>
         </div> 
-        ); 
     </div>
     )
 }

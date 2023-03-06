@@ -27,14 +27,14 @@ const SignUp = () => {
     axios.post('http://localhost:3001/auth', data).then((response) => {
       console.log("User Created!");
     });
-  }
+  };
 
   return (
     <div className='flex justify-center items-center h-full'>
       <form className="mt-8 space-y-6">
         <div className="space-y-2">
           {
-            fields.map(field=>
+            fields.map(field =>
               <Input
                 key={field.id}
                 handleChange={handleChange}

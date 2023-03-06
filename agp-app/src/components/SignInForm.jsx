@@ -30,31 +30,31 @@ const Login = () => {
   }
   
   return (
-        <div className='flex justify-center items-center h-full'>
-          <form className="mt-2 space-y-4">
-            <div className="space-y-2">
-              {
-                fields.map(field=>
-                  <Input
-                    key={field.id}
-                    handleChange={handleChange}
-                    value={loginState[field.id]}
-                    labelText={field.labelText}
-                    labelFor={field.labelFor}
-                    id={field.id}
-                    name={field.name}
-                    type={field.type}
-                    isRequired={field.isRequired}
-                    placeholder={field.placeholder}
-                    required
-                  />
-                )
-              }
-            </div>
-            <FormFooter />
-            <FormAction handleSubmit={handleSubmit} text="Login"/>
-          </form>
+    <div className='flex justify-center items-center h-full'>
+      <form className="mt-2 space-y-4">
+        <div className="space-y-2">
+          {
+            fields.map(field=>
+              <Input
+                key={field.id}
+                handleChange={handleChange}
+                value={loginState[field.id]}
+                labelText={field.labelText}
+                labelFor={field.labelFor}
+                id={field.id}
+                name={field.name}
+                type={field.type}
+                isRequired={field.isRequired}
+                placeholder={field.placeholder}
+                required
+              />
+            )
+          }
         </div>
+        <FormFooter />
+        <FormAction handleSubmit={handleSubmit} text="Login"/>
+      </form>
+    </div>
   )
 }
 

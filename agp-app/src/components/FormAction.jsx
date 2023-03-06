@@ -1,10 +1,10 @@
 import React from 'react';
 
 const FormAction = ({
-    handleSubmit,
-    type='Button',
-    action='submit',
-    text 
+  handleSubmit,
+  type='Button',
+  action='submit',
+  text 
 }) => {
 
   return (
